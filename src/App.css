@@ -1,0 +1,19 @@
+html,body,#root{
+  height:100%;
+}
+body{
+  background: whitesmoke !important;
+}
+#root{
+  display: flex;
+  align-items: center;
+}
+.registration-box{
+  
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0px 0px 30px 1px rgb(169, 168, 168);
+  border-color: gray;
+  border-width: 2px;  
+
+}
