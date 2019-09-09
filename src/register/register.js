@@ -72,7 +72,9 @@ export default class Register extends React.Component{
                             <FormGroup style={{textAlign:'center'}}>
                                 <Button disabled={this.state.loading} type="submit" >Register</Button>        
                             </FormGroup>
-
+                            <FormGroup style={{textAlign:'center'}}>
+                                <Button onClick={()=>window.location.pathname='/login'}>Already have an account?,Login</Button>
+                            </FormGroup>
                         </Form>
                     </Col>
                     

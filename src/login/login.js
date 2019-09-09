@@ -21,12 +21,21 @@ export default class Login extends React.Component{
             var data = res.data
             var stringified = JSON.stringify(data)
             localStorage.setItem('auth_token',stringified)
-            alert("You have been successfully logged in")
+            alert("You have been successfully logged in. Your access token is "+data.access)
             this.resetform()
             
         }).catch(e=>{
             var error = e
-            console.log(error.response.data)
+                    this.resetform()
+                    if(error.response){
+                        if(error.response.data.detail==="No active account found with the given credentials"){
+                            alert("Wrong username or password")
+                        }
+                    }else if (error.request) {
+                        console.log(error.request);
+                    } else {
+                        console.log('Error', error.message);
+                    }
         })
     }
     resetform = ()=>{
@@ -63,6 +72,9 @@ export default class Login extends React.Component{
                             </FormGroup>
                             <FormGroup style={{textAlign:'center'}}>
                                 <Button disabled={this.state.loading} type="submit" >Login</Button>
+                            </FormGroup>
+                            <FormGroup style={{textAlign:'center'}}>
+                                <Button onClick={()=>window.location.pathname='/'}>New User?, Register</Button>
                             </FormGroup>
                         </Form>
                     </Col>
